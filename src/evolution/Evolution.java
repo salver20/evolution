@@ -1,8 +1,5 @@
 package evolution;
 
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-
 import javax.swing.JFrame;
 
 public class Evolution extends JFrame {
@@ -21,42 +18,9 @@ public class Evolution extends JFrame {
 		setResizable(false);
 		Map map = new Map(size);
 		this.add(map);
-		
+		map.requestFocus();
+
 		Thread t1 = new Thread(map);
 		t1.start();
-		
-		map.addMouseListener(new MouseListener() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				// TODO Auto-generated method stub
-				int i = (e.getX()) / 6;
-				int j = (e.getY()) / 6;
-				map.setNextMap(i, j, 1);
-				map.refresh1();
-				repaint();
-			}
-
-			@Override
-			public void mousePressed(MouseEvent e) {
-				// TODO Auto-generated method stub
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				// TODO Auto-generated method stub
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				// TODO Auto-generated method stub
-			}
-		});
 	}
-
 }
